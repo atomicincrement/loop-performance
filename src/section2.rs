@@ -22,6 +22,7 @@ pub fn a_fadd_fast_sum(numbers: &[f32]) -> f32 {
         .fold(0_f32, |p, v| unsafe { fadd_fast(p, *v) })
 }
 
+/*
 /// A macro that executes 16 operations in parallel.
 macro_rules! do8 {
     ($f : expr) => {
@@ -61,6 +62,7 @@ macro_rules! do16 {
         ]
     };
 }
+*/
 
 /// A macro that executes 32 operations in parallel.
 macro_rules! do32 {

@@ -7,9 +7,10 @@
 // Features needed for tests and nightly-only intrinsics.
 #![feature(core_intrinsics)]
 #![feature(test)]
-
+#![allow(dead_code)]
 mod section1;
 mod section2;
+mod section3;
 
 use std::time::Instant;
 
@@ -62,5 +63,15 @@ fn main() {
     benchmark(
         "section2::a_faster_sum",
         || section2::c_faster_sum(&*some_numbers)
+    );
+
+    benchmark(
+        "section3::a_packed_simd_fast_sum",
+        || section3::a_packed_simd_fast_sum(&*some_numbers)
+    );
+
+    benchmark(
+        "section3::b_bigger_packed_simd_fast_sum",
+        || section3::b_bigger_packed_simd_fast_sum(&*some_numbers)
     );
 }
